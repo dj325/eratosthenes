@@ -1,5 +1,5 @@
 #define DEFAULT_LIMIT 100
-#defin MAX_INT 2147483647
+#define MAX_INT 2147483647
 
 typedef struct checks {
 	size_t size;
@@ -28,7 +28,7 @@ int parse_args(int argc, char*argv[]){
 		printf("Too many arguments provided, using default max: %d\n", DEFAULT_LIMIT);
 		max_prime = DEFAULT_LIMIT;
 	}
-	else{
+	if(argc == 2){
 		max_prime = atoi(argv[1]);
 		if(max_prime < 0){
 			printf("Int overflow, using max int: %d\n", MAX_INT);
@@ -60,7 +60,8 @@ static primes_t* execute_erastothenes(int max_prime){
 
 void uncheck_multiples(checks_t* check_list){
 	int N = check_list->size;
-	for(int multiple=2; multiple<N/2; multiple++){
+	int limit = (int) sqrt(N);
+	for(int multiple=2; multiple<limit; multiple++){
 		int index = 2*multiple;
 		while(index < N){
 			if(check_list->arr[index] == false){
