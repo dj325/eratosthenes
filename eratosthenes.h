@@ -55,7 +55,7 @@ static bools_t* generate_check_list(size_t size){
 }
 
 void check_factorisable_indexes(bools_t* check_list){
-	int limit = (int) sqrt(check_list->size);
+	int limit = (int) sqrt(check_list->size) + 1;
 	for(int factor=2; factor<=limit; factor++){
 		check_multiples_of_factor_in_list(factor, check_list);
 	}
@@ -63,7 +63,7 @@ void check_factorisable_indexes(bools_t* check_list){
 
 void check_multiples_of_factor_in_list(int factor, bools_t* list){
   int multiple = 2*factor;
-  while(multiple < list->size){
+  while(multiple <= list->size){
     if(list->arr[multiple] == false){
       list->arr[multiple] = true;
     }
