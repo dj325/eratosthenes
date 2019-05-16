@@ -3,12 +3,11 @@
 #include <stdbool.h>
 #include "erastothenes.h"
 
-#define MAX_PRIME 2147483648
-
 int main(int argc, char* argv[]){
-	int max_prime = parse_args(argv);
-	int* prime_list = execute_erastothenes(max_prime);
-	print_primes(prime_list);
+	int max_prime = parse_args(argc, argv);
+	primes_t* primes = execute_erastothenes(max_prime);
+	print_primes(primes);
+	free(primes);
 
 	return 0;
 }
