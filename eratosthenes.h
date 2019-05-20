@@ -18,7 +18,7 @@ static primes_t* execute_eratosthenes(int max_prime);
 void print_primes(primes_t* prime_list);
 void check_factorisable_indexes(bools_t* check_list);
 static primes_t* get_primes_from_unchecked_indexes(bools_t* check_list);
-void check_multiples_of_factor_in_list(int multiple, bools_t* list);
+void check_multiples_of_factor_in_check_list(int multiple, bools_t* list);
 
 int parse_args(int argc, char*argv[]){
 	int max_prime;
