@@ -23,20 +23,21 @@ void check_multiples_of_factor_in_list(int multiple, bools_t* list);
 int parse_args(int argc, char*argv[]){
 	int max_prime;
 	if(argc == 1){
-		printf("No arguments provided, using default max: %d\n", DEFAULT_LIMIT);
+		printf("No arguments provided, using default limit\n");
 		max_prime = DEFAULT_LIMIT;
 	}
 	if(argc > 2){
-		printf("Too many arguments provided, using default max: %d\n", DEFAULT_LIMIT);
+		printf("Too many arguments provided, using default limit\n");
 		max_prime = DEFAULT_LIMIT;
 	}
 	if(argc == 2){
 		max_prime = atoi(argv[1]);
 		if(max_prime < 0){
-			printf("Received negative, using default limit: %d\n", DEFAULT_LIMIT);
+			printf("Received negative, using default limit\n");
 			max_prime = DEFAULT_LIMIT;
 		}
 	}
+	printf("Calculating primes up to: %d\n", max_prime);
 	return max_prime;
 }
 
@@ -57,15 +58,15 @@ static bools_t* generate_check_list(size_t size){
 void check_factorisable_indexes(bools_t* check_list){
 	int limit = (int) sqrt(check_list->size) + 1;
 	for(int factor=2; factor<=limit; factor++){
-		check_multiples_of_factor_in_list(factor, check_list);
+		check_multiples_of_factor_in_check_list(factor, check_list);
 	}
 }
 
-void check_multiples_of_factor_in_list(int factor, bools_t* list){
+void check_multiples_of_factor_in_check_list(int factor, bools_t* check_list){
   int multiple = 2*factor;
-  while(multiple <= list->size){
-    if(list->arr[multiple] == false){
-      list->arr[multiple] = true;
+  while(multiple <= check_list->size){
+    if(check_list->arr[multiple] == false){
+      check_list->arr[multiple] = true;
     }
     multiple = multiple + factor;
   }
