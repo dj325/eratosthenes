@@ -33,8 +33,8 @@ int parse_args(int argc, char*argv[]){
 	if(argc == 2){
 		max_prime = atoi(argv[1]);
 		if(max_prime < 0){
-			printf("Int overflow, using max int: %d\n", MAX_INT);
-			max_prime = MAX_INT;
+			printf("Received negative, using default limit: %d\n", DEFAULT_LIMIT);
+			max_prime = DEFAULT_LIMIT;
 		}
 	}
 	return max_prime;
