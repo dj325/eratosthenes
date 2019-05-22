@@ -5,7 +5,7 @@ than 100 by default, or any positive limit up to 2,147,483,647 (max int32 value)
 preceded by its sequence number.
 
 ## Installation
-Download both files into the same directory and during comilation link the math
+Download both files into the same directory and during compilation link the math
 library.
 ```
 gcc eratosthenes.c -lm
